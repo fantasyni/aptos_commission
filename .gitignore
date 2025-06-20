@@ -1,0 +1,16 @@
+dist
+node_modules
+.deepmove
+.tests
+build
+.idea
+traces
+.aptos
+template
+ptb
+.env
+pkg
+scripts
+package-lock.json
+back
+tests
