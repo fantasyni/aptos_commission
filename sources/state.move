@@ -2,7 +2,7 @@ module aptos_commission::state {
     use std::smart_table::{Self, SmartTable};
     use aptos_commission::constant;
     use std::table::{Self, Table};
-    use std::string::String;
+    use std::string::{String};
 
     friend aptos_commission::commission;
     friend aptos_commission::admin;
@@ -20,6 +20,10 @@ module aptos_commission::state {
         lv_commission_ratio: SmartTable<u16, u16>,
     }
 
+    struct UserState has key {
+        user_source: Table<address, String>
+    }
+
     public(friend) fun init_state(
         sender: &signer
     ) {
@@ -27,6 +31,10 @@ module aptos_commission::state {
             reserve_address: @reserve_addr,
             source_info: table::new(),
             lv_commission_ratio: smart_table::new(),
+        });
+
+        move_to(sender, UserState {
+            user_source: table::new(),
         });
     }
 
@@ -140,6 +148,34 @@ module aptos_commission::state {
         state.source_info.add(new_source, old_info);
     }
 
+    public(friend) fun change_user_source(
+        user_address: address,
+        source: String,
+    ) acquires UserState {
+        let user_state = borrow_global_mut<UserState>(@aptos_commission);
+
+        if (user_state.user_source.contains(user_address)) {
+            let old_source = user_state.user_source.borrow_mut(user_address);
+            *old_source = source;
+        } else {
+            user_state.user_source.add(user_address, source);
+        }
+    }
+
+    public(friend) fun get_user_source(
+        user_address: address
+    ): String acquires UserState {
+        let user_state = borrow_global<UserState>(@aptos_commission);
+        *user_state.user_source.borrow(user_address)
+    }
+
+    public(friend) fun exists_user_source(
+        user_address: address
+    ): bool acquires UserState {
+        let user_state = borrow_global<UserState>(@aptos_commission);
+        user_state.user_source.contains(user_address)
+    }
+
     #[view]
     public fun view_reserve_address(): address acquires State {
         let state = borrow_global<State>(@aptos_commission);
@@ -168,5 +204,11 @@ module aptos_commission::state {
     #[view]
     public fun view_lv_ratio(lv: u16): u16 acquires State {
         get_level_commission_ratio(lv)
+    }
+
+    #[view]
+    public fun view_user_source(user_address: address): String acquires UserState {
+        let user_state = borrow_global<UserState>(@aptos_commission);
+        *user_state.user_source.borrow(user_address)
     }
 }
