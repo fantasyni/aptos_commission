@@ -32,6 +32,7 @@ jobs:
         with:
           node-version: "20"
           cache: npm
+          registry-url: https://npm.pkg.github.com/
       - name: Install dependencies
         run: npm ci
       - name: Run ghscript
@@ -43,6 +44,12 @@ jobs:
       - name: Build Move Packages
         run: |
           aptos move build --included-artifacts none --save-metadata
+      - name: Publish Move Packages
+        run: |
+          cd build/aptos_commission
+          npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
   # Deployment job
   # deploy:
