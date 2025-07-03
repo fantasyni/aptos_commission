@@ -2,7 +2,6 @@ dist
 node_modules
 .deepmove
 .tests
-build
 .idea
 traces
 .aptos
