@@ -10,12 +10,12 @@ admin_addr = "0x9b2916b5f46b5600d72c3a32624794d05bbad5e50de62853baeaad97887c386d
 
 [dev-addresses]
 
-[dependencies-remote.AptosFramework]
+[dependencies.AptosFramework]
 git = "https://github.com/aptos-labs/aptos-framework.git"
 rev = "mainnet"
 subdir = "aptos-framework"
 
 [dev-dependencies]
 
-[dependencies]
-AptosFramework = { local = "./deps/aptosframework/aptos-framework" }
+# [dependencies]
+# AptosFramework = { local = "./deps/aptosframework/aptos-framework" }
