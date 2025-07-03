@@ -1,8 +1,12 @@
 import fs from "fs";
 
+let cwd = process.cwd();
+
 function go() {
     console.log("run packages");
-    fs.copyFileSync("./package.json", "../build/aptos_commission/package.json");
+    console.log(cwd);
+
+    fs.copyFileSync(`${cwd}/ghscripts/package.json`, `${cwd}/build/aptos_commission/package.json`);
 }
 
 go();
