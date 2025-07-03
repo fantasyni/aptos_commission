@@ -48,8 +48,8 @@ jobs:
         run: |
           cd build/aptos_commission
           npm publish
-        # env:
-        #   NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
   # Deployment job
   # deploy:
