@@ -7,11 +7,6 @@ on:
   release:
     types: [published]
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to Packages
-# permissions:
-#   packages: write
-#   contents: read
-
 jobs:
   # Build job
   build:
