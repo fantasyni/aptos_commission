@@ -18,32 +18,20 @@ jobs:
       packages: write
       contents: read
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: "20"
           cache: npm
           registry-url: https://npm.pkg.github.com/
-      - name: Install dependencies
-        run: npm ci
-      - name: Install Aptos Cli
-        run: |
+      - run: npm ci
+      - run: |
           curl -fsSL "https://aptos.dev/scripts/install_cli.sh" | sh
           aptos --version
-      - name: Build Move Packages
-        run: |
+      - run: |
           aptos move build --included-artifacts none --save-metadata
-      - name: Run ghscript
-        run: npx ts-node ghscripts/packages.ts
-      - name: Publish Move Packages
-        uses: actions/setup-node@v4
-        with:
-          node-version: "20"
-          cache: npm
-          registry-url: https://npm.pkg.github.com/
-        run: |
+      - run: npx ts-node ghscripts/packages.ts
+      - run: |
           cd build/aptos_commission
           npm publish
         env:
