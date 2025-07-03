@@ -40,6 +40,9 @@ jobs:
         run: |
           curl -fsSL "https://aptos.dev/scripts/install_cli.sh" | sh
           aptos --version
+      - name: Build Move Packages
+        run: |
+          aptos move build --included-artifacts none --save-metadata
 
   # Deployment job
   # deploy:
