@@ -15,8 +15,6 @@ on:
 jobs:
   # Build job
   build:
-    env:
-      NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
     runs-on: ubuntu-latest
     permissions:
       packages: write
@@ -26,7 +24,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
-          # cache: npm
+          cache: npm
           registry-url: https://npm.pkg.github.com/
       - run: npm ci
       - run: |
@@ -38,8 +36,8 @@ jobs:
       - run: |
           cd build/aptos_commission
           npm publish
-        
-
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
   # Deployment job
   # deploy:
