@@ -37,8 +37,9 @@ jobs:
           aptos move build --included-artifacts none --save-metadata
       - name: Run ghscript
         run: npx ts-node ghscripts/packages.ts
-      # - name: Publish Move Packages
-      - run: |
+      - name: Publish Move Packages
+        run: |
+          echo ${{secrets.GITHUB_TOKEN}}
           cd build/aptos_commission
           npm publish
         env:
