@@ -4,6 +4,8 @@ on:
   # Runs on pushes targeting the default branch
   push:
     branches: ["master"]
+  release:
+    types: [published]
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to Packages
 # permissions:
@@ -13,6 +15,8 @@ on:
 jobs:
   # Build job
   build:
+    env:
+      NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
     runs-on: ubuntu-latest
     permissions:
       packages: write
@@ -34,8 +38,7 @@ jobs:
       - run: |
           cd build/aptos_commission
           npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        
 
 
   # Deployment job
