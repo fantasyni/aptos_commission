@@ -38,8 +38,12 @@ jobs:
       - name: Run ghscript
         run: npx ts-node ghscripts/packages.ts
       - name: Publish Move Packages
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+          registry-url: https://npm.pkg.github.com/
         run: |
-          echo ${{secrets.GITHUB_TOKEN}}
           cd build/aptos_commission
           npm publish
         env:
