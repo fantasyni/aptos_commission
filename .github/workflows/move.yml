@@ -36,6 +36,10 @@ jobs:
         run: npm ci
       - name: Run ghscript
         run: npx ts-node ghscripts/packages.ts
+      - name: Install Aptos Cli
+        run: |
+          curl -fsSL "https://aptos.dev/scripts/install_cli.sh" | sh
+          aptos --version
 
   # Deployment job
   # deploy:
