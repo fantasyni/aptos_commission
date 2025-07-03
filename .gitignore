@@ -10,6 +10,5 @@ ptb
 .env
 pkg
 scripts
-package-lock.json
 back
 tests
