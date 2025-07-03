@@ -5,8 +5,5 @@
     "bytecode_modules/",
     "Buildinfo.yaml",
     "package-metadata.bcs"
-  ],
-  "publishConfig": {
-    "@fantasyni:registry": "https://npm.pkg.github.com"
-  }
+  ]
 }
