@@ -1,6 +1,6 @@
 {
   "name": "@fantasyni/aptos_commission",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "files": [
     "bytecode_modules/",
     "Buildinfo.yaml",
