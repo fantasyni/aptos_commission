@@ -1,5 +1,5 @@
 {
-  "name": "build",
+  "name": "@fantasyni/aptos_commission",
   "version": "1.0.0",
   "files": [
     "bytecode_modules/",
@@ -7,6 +7,6 @@
     "package-metadata.bcs"
   ],
   "publishConfig": {
-    "@fantasyni:registry": "https://npm.pkg.github.com"
+    "registry": "https://npm.pkg.github.com"
   }
 }
