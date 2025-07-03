@@ -7,6 +7,6 @@
     "package-metadata.bcs"
   ],
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
+    "@fantasyni:registry": "https://npm.pkg.github.com"
   }
 }
