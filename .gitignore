@@ -9,7 +9,7 @@ template
 ptb
 .env
 pkg
-scripts
+# scripts
 back
 tests
 deps

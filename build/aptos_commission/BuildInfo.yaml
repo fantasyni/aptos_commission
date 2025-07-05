@@ -4,7 +4,7 @@ compiled_package_info:
   address_alias_instantiation:
     Extensions: "0000000000000000000000000000000000000000000000000000000000000001"
     admin_addr: 9b2916b5f46b5600d72c3a32624794d05bbad5e50de62853baeaad97887c386d
-    aptos_commission: fbd2dc776c3b79ae2519dd87a5d594e0329b16a9dbf2a19d9d19843fa8539166
+    aptos_commission: df60d3f5a6502b63598f1d223abe1fd18dc8e86c8ca6e087d5cb8be91f50aaa6
     aptos_framework: "0000000000000000000000000000000000000000000000000000000000000001"
     aptos_fungible_asset: 000000000000000000000000000000000000000000000000000000000000000a
     aptos_std: "0000000000000000000000000000000000000000000000000000000000000001"
@@ -14,7 +14,7 @@ compiled_package_info:
     std: "0000000000000000000000000000000000000000000000000000000000000001"
     vm: "0000000000000000000000000000000000000000000000000000000000000000"
     vm_reserved: "0000000000000000000000000000000000000000000000000000000000000000"
-  source_digest: E4EDDA2BDD6526C1C93B9A29E1FF95E2DC61DDC350F550FC316C9D5E0C0EAC54
+  source_digest: 28BB84C35ACD4D53D050DA9675A6FC5652B68E8B2DCEAB450B84105A9E3C7092
   build_flags:
     dev_mode: false
     test_mode: false
@@ -25,7 +25,8 @@ compiled_package_info:
     full_model_generation: true
     install_dir: ~
     force_recompilation: false
-    additional_named_addresses: {}
+    additional_named_addresses:
+      aptos_commission: df60d3f5a6502b63598f1d223abe1fd18dc8e86c8ca6e087d5cb8be91f50aaa6
     fetch_deps_only: false
     skip_fetch_latest_git_deps: false
     compiler_config:

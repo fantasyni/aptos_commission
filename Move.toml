@@ -4,7 +4,7 @@ version = "1.0.0"
 authors = []
 
 [addresses]
-aptos_commission = "0xfbd2dc776c3b79ae2519dd87a5d594e0329b16a9dbf2a19d9d19843fa8539166"
+aptos_commission = "_"
 reserve_addr = "0x62abdb14a6e0870a79e530abc7d0505a91c26657ccca849a742c236f8d8b3607"
 admin_addr = "0x9b2916b5f46b5600d72c3a32624794d05bbad5e50de62853baeaad97887c386d"
 
@@ -19,3 +19,4 @@ subdir = "aptos-framework"
 
 # [dependencies]
 # AptosFramework = { local = "./deps/aptosframework/aptos-framework" }
+# aptos_commission = "0xfbd2dc776c3b79ae2519dd87a5d594e0329b16a9dbf2a19d9d19843fa8539166"
